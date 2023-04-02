@@ -1,0 +1,41 @@
+{
+    "name": "chakavang/crawlman",
+    "description": "A simple web crawler to collect data about musicians, albums, songs and lyrics.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/miladnia/crawlman/",
+    "keywords": [
+        "crawler",
+        "scraper"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Chakavang\\Crawlman\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Milad Nia",
+            "email": "milad@miladnia.ir",
+            "homepage": "http://miladnia.ir"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.14",
+        "ext-mbstring": "*",
+        "ext-dom": "*",
+        "psr/log": "^1.1.4",
+        "fabpot/goutte": "^3.2",
+        "symfony/dom-crawler": "^4.4|^5.0",
+        "symfony/browser-kit": "^4.4|^5.0",
+        "morilog/jalali": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "scripts": {
+        "test": "phpunit --testdox tests",
+        "example": "@php ./examples/example.php"
+    }
+}
