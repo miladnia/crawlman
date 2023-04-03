@@ -11,12 +11,37 @@ use Chakavang\Crawlman\CrawlManager;
     ->registerCrawler(new Chakavang\Crawlman\Crawler\Google\AlbumCrawlerFactory, 'ALB')
     ->registerCrawler(new Chakavang\Crawlman\Crawler\Google\LyricsCrawlerFactory, 'LYR');
 
-/** @var Chakavang\Crawlman\Type\ArtistCrawlerInterface */
+/**
+ * Scraping the Wikipedia page of "Michael Jackson".
+ * According to the "url" and "type", the relevant crawler will be returned.
+ * 
+ * @var Chakavang\Crawlman\Type\ArtistCrawlerInterface $crawler
+ */
 $crawler = $cm->getCrawler(
     'https://en.wikipedia.org/wiki/Michael_Jackson', 'ART', CrawlManager::LANG_ENGLISH);
 
-echo $crawler->getArtistName() . "\n- Born in ("
-    . $crawler->getArtistBirthPlace() . ")\n- Years active ["
+echo $crawler->getArtistName() . " ("
+    . $crawler->getArtistRealName() . ") "
+    . $crawler->getArtistBirthday()->format('Y') . "-"
+    . $crawler->getArtistDeathDate()->format('Y')
+
+    . "\n- Born in \""
+    . $crawler->getArtistBirthPlace(). "\""
+
+    . "\n- Years active ["
     . $crawler->getArtistActiveYearsFrom() . "-"
-    . $crawler->getArtistActiveYearsTo() . "]\n- Genres: "
-    . implode(', ', $crawler->getArtistGenres()) . "\n";
+    . $crawler->getArtistActiveYearsTo() . "]"
+
+    . "\n- Genres: "
+    . implode(', ', $crawler->getArtistGenres())
+
+    . "\n- Occupations: "
+    . implode(', ', $crawler->getArtistOccupations())
+
+    . "\n- Instruments: "
+    . implode(', ', $crawler->getArtistInstruments())
+
+    . "\n- Link: "
+    . $crawler->getArtistWebsiteAddress()
+
+    . "\n";
