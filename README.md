@@ -10,7 +10,8 @@ A simple web crawler to collect data about musicians, albums, songs and lyrics.
 ## How to code
 
 This is just a sample code that shows how it works. For more information and to see the complete code, please check the `./examples/` directory where a working example code is located.
-```
+
+```php
 $url = 'https://en.wikipedia.org/wiki/Michael_Jackson';
 $crawler = $manager->getCrawler($url, 'ART');
 
